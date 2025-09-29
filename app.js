@@ -10,8 +10,23 @@ app.get("/", (req, res) => {
   res.send("Hello Express!");
 });
 
+//ALL USERS CREATE IN APP JS
 router.get("/users", (req, res) => {
-  res.send("this is GET users");
+  res.send("This is GET Users");
+});
+
+router.get("/users/:id", (req, res) => {
+  res.send("This is GET one Users");
+});
+router.post("/users/:id", (req, res) => {
+  res.send("This is  CREATE Users");
+});
+
+router.put("/users/:id", (req, res) => {
+  res.send("This is UPDATE Users");
+});
+router.delete("/users/:id", (req, res) => {
+  res.send("This is DELETE  Users");
 });
 
 app.use(router);
