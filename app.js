@@ -1,8 +1,8 @@
 // Basic server setup
 import express from "express";
-
+import userRoutes from "./routes/userRoutes.js";
 const app = express();
-const router = express.Router();
+
 const PORT = 4000;
 
 // HTTP method handling
@@ -11,25 +11,8 @@ app.get("/", (req, res) => {
 });
 
 //ALL USERS CREATE IN APP JS
-router.get("/users", (req, res) => {
-  res.send("This is GET Users");
-});
 
-router.get("/users/:id", (req, res) => {
-  res.send("This is GET one Users");
-});
-router.post("/users/:id", (req, res) => {
-  res.send("This is  CREATE Users");
-});
-
-router.put("/users/:id", (req, res) => {
-  res.send("This is UPDATE Users");
-});
-router.delete("/users/:id", (req, res) => {
-  res.send("This is DELETE  Users");
-});
-
-app.use(router);
+app.use("/api/users", userRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
